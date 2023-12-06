@@ -5,12 +5,15 @@ import morgan from 'morgan';
 import connectDB from './config/db.js';
 import authRoutes from './routes/authRoute.js';
 import cors from 'cors';
-import categoryRoutes from './Routes/categoryRoutes.js'
-import productsRoutes from './Routes/productRoutes.js'
-import path from 'path'
+import categoryRoutes from './Routes/categoryRoutes.js';
+import productsRoutes from './Routes/productRoutes.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
+const __filename = fileUrlToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 8181;
 
