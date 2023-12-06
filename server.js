@@ -12,7 +12,7 @@ import { fileURLToPath } from 'url';
 
 dotenv.config();
 
-const __filename = fileUrlToPath(import.meta.url);
+const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 8181;
@@ -29,11 +29,12 @@ connectDB();
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/category', categoryRoutes);
 app.use('/api/v1/product', productsRoutes);
-app.use(express.static(path.join(__dirname, './frontend/build')))
+app.use(express.static(path.join(__dirname, './frontend/build')));
 
 app.use('*', function (req, res) {
-    res.sendFile(path.join(__dirname, './frontend/build/index.html'))
-})
+    res.sendFile(path.join(__dirname, './frontend/build/index.html'));
+});
+
 app.get('/', (req, res) => {
     res.send('<h1>Welcome to Your Ecommerce Website</h1>');
 });
@@ -41,7 +42,6 @@ app.get('/', (req, res) => {
 // Start the server
 app.listen(PORT, () => {
     console.log(
-        `Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgMagenta
-            .white
+        `Server Running on ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`.bgMagenta.white
     );
 });
