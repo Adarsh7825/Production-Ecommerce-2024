@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "proxy": "https://production-ecommerce-2024.onrender.com",
+  "proxy": "https://myprojectbackend.vercel.app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
